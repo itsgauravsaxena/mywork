@@ -8,5 +8,6 @@
     <modules>
         <!-- Add project modules -->
     	<module>TestBusinessRules</module>
+    	<module>TestDecisionTable</module>
     </modules>
 </project>

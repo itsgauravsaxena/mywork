@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="org.gaming" targetNamespace="org.gaming"
+            elementFormDefault="qualified">
+  <xsd:element name="rockPaperScissorsRequest" type="rockPaperScissorsRequestType">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="rockPaperScissorsResponse" type="rockPaperScissorsResponseType"/>
+  <xsd:complexType name="rockPaperScissorsRequestType">
+    <xsd:sequence>
+      <xsd:element name="throwOne" type="rockPaperScissorsType"/>
+      <xsd:element name="throwTwo" type="rockPaperScissorsType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="rockPaperScissorsResponseType">
+    <xsd:sequence>
+      <xsd:element name="outCome" type="rockPaperScissorsOutcomeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="rockPaperScissorsType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="scissors"/>
+      <xsd:enumeration value="rock"/>
+      <xsd:enumeration value="paper"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="rockPaperScissorsOutcomeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="twoWIns"/>
+      <xsd:enumeration value="oneWins"/>
+      <xsd:enumeration value="tie"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<properties>
+   <entry key="AG}40b89bb8:15465c69f61:-7bb1">Test_RockPaperScissorsRuling</entry>
+   <entry key="AG}40b89bb8:15465c69f61:-7bb0">roundOne</entry>
+   <entry key="AG}40b89bb8:15465c69f61:-7bbd">RuleAGameOfRockPaperScissors</entry>
+   <entry key="DG}40b89bb8:15465c69f61:-7bb1">Test Function</entry>
+   <entry key="DG}40b89bb8:15465c69f61:-7bb8">DecideOutcomeOfRounds</entry>
+   <entry key="AG}40b89bb8:15465c69f61:-7bb8">DecideOutcomeOfRounds</entry>
+   <entry key="AG}40b89bb8:15465c69f61:-7baf">throwTwo</entry>
+</properties>

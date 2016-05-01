@@ -1,0 +1,26 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="ExposeRockPaperScissors"
+     targetNamespace="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/ExposeRockPaperScissors"
+     xmlns:tns="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/ExposeRockPaperScissors"
+     xmlns:inp1="org.gaming"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="org.gaming" schemaLocation="../Schemas/RockPaperScissors.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="RequestMessage" element="inp1:rockPaperScissorsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="ResponseMessage" element="inp1:rockPaperScissorsResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="gameRulings_ptt">
+        <wsdl:operation name="callARoundOfRockPaperScissors">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

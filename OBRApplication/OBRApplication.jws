@@ -24,5 +24,6 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="TestBusinessRules/TestBusinessRules.jpr"/></hash>
+      <hash><url n="URL" path="TestDecisionTable/TestDecisionTable.jpr"/></hash>
    </list>
 </jws:workspace>

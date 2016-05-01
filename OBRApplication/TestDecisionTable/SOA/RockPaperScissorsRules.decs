@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="RockPaperScissorsRules">
+    <ruleEngineProvider provider="Oracle_11.0.0.0.0" name="OracleRulesSDK">
+        <repository type="SCA-Archive">
+            <path>TestDecisionTable/oracle/rules/testdecisiontable/RockPaperScissorsRules.rules</path>
+        </repository>
+    </ruleEngineProvider>
+    <decisionService name="RockPaperScissorsRules_DecisionService_1" ruleEngineProviderReference="OracleRulesSDK" targetNamespace="http://xmlns.oracle.com/RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1">
+        <catalog>RockPaperScissorsRules</catalog>
+        <pattern name="CallFunctionStateless">
+            <arguments>
+                <call>testdecisiontable.RockPaperScissorsRules.DecisionService_1</call>
+            </arguments>
+        </pattern>
+        <pattern name="CallFunctionStateful">
+            <arguments>
+                <call>testdecisiontable.RockPaperScissorsRules.DecisionService_1</call>
+            </arguments>
+        </pattern>
+    </decisionService>
+    <schemaInformation>
+        <dictionary fqnPackage="testdecisiontable" fqnName="RockPaperScissorsRules" updateNumber="101">
+            <schemaBrowser>
+                <package>gaming.org</package>
+                <namespace>org.gaming</namespace>
+            </schemaBrowser>
+            <schemaImport namespace="org.gaming" localPart="RockPaperScissors.xsd" schemaLocation="Schemas/RockPaperScissors.xsd">
+                <import namespace="org.gaming" localPart="RockPaperScissors.xsd" schemaLocation="Schemas/RockPaperScissors.xsd"/>
+            </schemaImport>
+        </dictionary>
+    </schemaInformation>
+</decisionServices>
