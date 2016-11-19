@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:reference[@name='fileService']</loc>
+      <line>18</line>
+      <col>74</col>
+      <file>/home/oracle/jdeveloper/mywork/FileAdapterApplications/ReadFileInChunks/SOA/composite.xml</file>
+      <name>/home/oracle/jdeveloper/mywork/FileAdapterApplications/ReadFileInChunks/SOA/composite.xml</name>
+      <fix/>
+      <msg>Reference fileService does not exist as wire target</msg>
+   </Fault>
+</Faults>

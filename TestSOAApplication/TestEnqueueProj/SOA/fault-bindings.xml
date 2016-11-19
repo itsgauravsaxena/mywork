@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faultPolicyBindings version="2.0.1" xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+
+    <composite faultPolicy="ora-retry-sample"/>
+
+    <component faultPolicy="ora-terminate-sample">
+        <name>BPELProcess1</name>
+    </component>
+
+    <component faultPolicy="ora-terminate-sample">
+        <name>BPELProcess2</name>
+    </component>
+
+    <reference faultPolicy="ora-terminate-sample">
+        <name>aqReference</name>
+    </reference>
+
+    <service faultPolicy="ora-terminate-sample">
+        <name>testdbService</name>
+    </service>
+
+    <service faultPolicy="ora-replay-scope-sample">
+        <name>bpelprocess2_client_ep</name>
+    </service>
+</faultPolicyBindings>

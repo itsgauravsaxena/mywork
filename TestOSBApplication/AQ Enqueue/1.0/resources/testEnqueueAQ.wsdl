@@ -1,0 +1,20 @@
+<wsdl:definitions name="testEnqueueAQ" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/AQ/TestSOAApplication/TestEnqueueProject/testEnqueueAQ" xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/AQ/TestSOAApplication/TestEnqueueProject/testEnqueueAQ" xmlns:obj1="http://xmlns.oracle.com/xdb/TESTDB" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+  <plt:partnerLinkType name="Enqueue_plt">
+    <plt:role name="Enqueue_role">
+      <plt:portType name="tns:Enqueue_ptt"/>
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema">
+        <import namespace="http://xmlns.oracle.com/xdb/TESTDB" schemaLocation="xsd/TESTDB_MESSAGE_TYP.xsd"/>
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="MESSAGE_TYP_msg">
+        <wsdl:part name="MESSAGE_TYP" element="obj1:MESSAGE_TYP"/>
+    </wsdl:message>
+    <wsdl:portType name="Enqueue_ptt">
+        <wsdl:operation name="Enqueue">
+            <wsdl:input message="tns:MESSAGE_TYP_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -11,6 +11,9 @@
      xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
      xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
     >
+    <plnk:partnerLinkType name="IDecisionService_PLT">
+        <plnk:role name="IDecisionService_Role" portType="tns:IDecisionService"/>
+    </plnk:partnerLinkType>
     <wsdl:types>
         <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.oracle.com/RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1">
             <include schemaLocation="../Schemas/RockPaperScissorsRules_DecisionService_1MessageTypes.xsd"/>

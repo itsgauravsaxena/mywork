@@ -1,0 +1,34 @@
+<wsdl:definitions
+     name="PartyReadDBConsumer"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/PartyReadBatchApplication/PartyReadFileProducer/PartyReadDBConsumer"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/PartyReadBatchApplication/PartyReadFileProducer/PartyReadDBConsumer"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:pc="http://xmlns.oracle.com/pcbpel/"
+     xmlns:top="http://xmlns.oracle.com/pcbpel/adapter/db/top/PartyReadDBConsumer"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="PartyReadDBConsumer_plt" >
+    <plt:role name="PartyReadDBConsumer_role" >
+      <plt:portType name="tns:PartyReadDBConsumer_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+  <plt:partnerLinkType name="PartyReadDBConsumer_plt" >
+    <plt:role name="PartyReadDBConsumer_role" >
+      <plt:portType name="tns:PartyReadDBConsumer_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/PartyReadDBConsumer" schemaLocation="../Schemas/PartyReadDBConsumer_table.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="CachepartyreadCollection_msg">
+        <wsdl:part name="CachepartyreadCollection" element="top:CachepartyreadCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="PartyReadDBConsumer_ptt">
+        <wsdl:operation name="receive">
+            <wsdl:input message="tns:CachepartyreadCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

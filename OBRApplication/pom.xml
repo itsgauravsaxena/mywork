@@ -9,5 +9,8 @@
         <!-- Add project modules -->
     	<module>TestBusinessRules</module>
     	<module>TestDecisionTable</module>
+    	<module>RulesWIthList</module>
+    	<module>RunnerUpRules</module>
+    	<module>TestRulesWithADFBCFacts</module>
     </modules>
 </project>

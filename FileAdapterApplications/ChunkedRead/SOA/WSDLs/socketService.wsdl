@@ -1,0 +1,30 @@
+<wsdl:definitions
+     name="socketService"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/socket/FileAdapterApplications/ChunkedRead/socketService"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/socket/FileAdapterApplications/ChunkedRead/socketService"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:pc="http://xmlns.oracle.com/pcbpel/"
+     xmlns:opaque="http://xmlns.oracle.com/pcbpel/adapter/opaque/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="Receive_plt" >
+    <plt:role name="Receive_role" >
+      <plt:portType name="tns:Receive_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+    <schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/opaque/"
+            xmlns="http://www.w3.org/2001/XMLSchema" >
+      <element name="opaqueElement" type="base64Binary" />
+    </schema>
+    </wsdl:types>
+    <wsdl:message name="Receive_msg">
+        <wsdl:part name="opaque" element="opaque:opaqueElement"/>
+    </wsdl:message>
+    <wsdl:portType name="Receive_ptt">
+        <wsdl:operation name="Receive">
+            <wsdl:input message="tns:Receive_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

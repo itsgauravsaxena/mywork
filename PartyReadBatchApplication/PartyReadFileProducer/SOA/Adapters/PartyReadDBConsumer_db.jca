@@ -1,0 +1,19 @@
+<adapter-config name="PartyReadDBConsumer" adapter="db" wsdlLocation="../WSDLs/PartyReadDBConsumer.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="testdb" location="eis/DB/test"/>
+  <endpoint-activation portType="PartyReadDBConsumer_ptt" operation="receive">
+    <activation-spec className="oracle.tip.adapter.db.DBActivationSpec">
+      <property name="DescriptorName" value="PartyReadDBConsumer.Cachepartyread"/>
+      <property name="QueryName" value="PartyReadDBConsumerSelect"/>
+      <property name="MappingsMetaDataURL" value="PartyReadDBConsumer-or-mappings.xml"/>
+      <property name="PollingStrategy" value="DeletePollingStrategy"/>
+      <property name="PollingInterval" value="5"/>
+      <property name="MaxRaiseSize" value="10"/>
+      <property name="MaxTransactionSize" value="10"/>
+      <property name="NumberOfThreads" value="1"/>
+      <property name="ReturnSingleResultSet" value="false"/>
+      <property name="SequencingColumn" value="INSERT_DATE"/>
+    </activation-spec>
+  </endpoint-activation>
+
+</adapter-config>

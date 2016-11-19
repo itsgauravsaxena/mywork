@@ -1,0 +1,11 @@
+<adapter-config name="aqReference" adapter="aq" wsdlLocation="../WSDLs/aqReference.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/AQ/testdb" UIConnectionName="testdb"/>
+  <endpoint-interaction portType="Enqueue_ptt" operation="Enqueue">
+    <interaction-spec className="oracle.tip.adapter.aq.outbound.AQEnqueueInteractionSpec">
+      <property name="QueueName" value="MSG_QUEUE"/>
+      <property name="DatabaseSchema" value="TEST"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

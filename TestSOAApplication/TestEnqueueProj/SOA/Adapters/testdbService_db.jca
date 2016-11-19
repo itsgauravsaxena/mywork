@@ -1,0 +1,18 @@
+<adapter-config name="testdbService" adapter="db" wsdlLocation="../WSDLs/testdbService.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="testdb" location="eis/DB/test"/>
+  <endpoint-activation portType="testdbService_ptt" operation="receive">
+    <activation-spec className="oracle.tip.adapter.db.DBActivationSpec">
+      <property name="DescriptorName" value="testdbService.Testenqueue"/>
+      <property name="QueryName" value="testdbServiceSelect"/>
+      <property name="MappingsMetaDataURL" value="testdbService-or-mappings.xml"/>
+      <property name="PollingStrategy" value="DeletePollingStrategy"/>
+      <property name="PollingInterval" value="5"/>
+      <property name="MaxRaiseSize" value="1"/>
+      <property name="MaxTransactionSize" value="10"/>
+      <property name="NumberOfThreads" value="1"/>
+      <property name="ReturnSingleResultSet" value="false"/>
+    </activation-spec>
+  </endpoint-activation>
+
+</adapter-config>

@@ -1,0 +1,15 @@
+<adapter-config name="ftpService" adapter="ftp" wsdlLocation="../WSDLs/ftpService.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/Ftp/FtpAdapter"/>
+  <endpoint-interaction portType="ChunkedRead_ptt" operation="ChunkedRead">
+    <interaction-spec className="oracle.tip.adapter.ftp.outbound.FTPChunkedInteractionSpec">
+      <property name="DeleteFile" value="true"/>
+      <property name="PhysicalDirectory" value="/tmp/FileChunkProject"/>
+      <property name="FileName" value="test.txt"/>
+      <property name="FileType" value="ascii"/>
+      <property name="ChunkSize" value="2000"/>
+      <property name="PhysicalArchiveDirectory" value="/tmp/FileChunkProjectAchive"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

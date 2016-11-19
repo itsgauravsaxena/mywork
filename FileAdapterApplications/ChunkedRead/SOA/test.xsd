@@ -1,0 +1,23 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema targetNamespace="http://www.example.org" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns="http://www.example.org">
+    <xsd:complexType name="RequestType">
+        <xsd:sequence>
+            <xsd:element name="EmpNo"/>
+            <xsd:element name="EmpName"/>
+            <xsd:element name="DateOfJoining"/>
+            <xsd:element name="Salary"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ResponseType">
+        <xsd:sequence>
+            <xsd:element name="Status"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Request" type="RequestType"/>
+    <xsd:element name="Response" type="ResponseType">
+        <xsd:annotation>
+            <xsd:documentation>A sample element</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+</xsd:schema>

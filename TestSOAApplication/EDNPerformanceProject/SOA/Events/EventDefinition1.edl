@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<definitions xmlns="http://schemas.oracle.com/events/edl" targetNamespace="http://xmlns.oracle.com/TestSOAApplication/EDNPerformanceProject/EventDefinition1">
+   <schema-import location="../Schemas/TEST_MESSAGE_TYP.xsd" namespace="http://xmlns.oracle.com/xdb/TEST"/>
+   <event-definition name="Event1">
+      <content xmlns:ns1="http://xmlns.oracle.com/xdb/TEST" element="ns1:MESSAGE_TYP"/>
+   </event-definition>
+</definitions>

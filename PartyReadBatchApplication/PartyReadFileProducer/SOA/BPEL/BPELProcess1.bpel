@@ -1,0 +1,83 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Thu Sep 08 15:50:59 CEST 2016
+  Author:  oracle
+  Type: BPEL 2.0 Process
+  Purpose: One Way BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="PartyReadFileProcess"
+               targetNamespace="http://xmlns.oracle.com/PartyReadBatchApplication/PartyReadFileProducer/BPELProcess1"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/PartyReadBatchApplication/PartyReadFileProducer/BPELProcess1"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/PartyReadBatchApplication/PartyReadFileProducer/PartyReadDBConsumer"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/file/PartyReadBatchApplication/PartyReadFileProducer/PartyReadFileAdapter"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      PARTNERLINKS                                                      
+      List of services participating in this BPEL process               
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/PartyReadBatchApplication/PartyReadFileProducer/PartyReadDBConsumer"
+          location="../WSDLs/PartyReadDBConsumer.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"
+          ui:processWSDL="true"/>
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="PartyReadDBConsumer" partnerLinkType="ns1:PartyReadDBConsumer_plt"
+                 myRole="PartyReadDBConsumer_role"/>
+    <partnerLink name="PartyReadFileAdapter" partnerLinkType="ns2:Write_plt" partnerRole="Write_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+
+    <variable name="InvokeFileProducer_Write_InputVariable" messageType="ns2:Write_msg"/>
+    <variable name="receiveInput_receive_InputVariable" messageType="ns1:CachepartyreadCollection_msg"/>
+  </variables>
+  <faultHandlers>
+    <catchAll>
+      <empty name="Empty1"/>
+    </catchAll>
+  </faultHandlers>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in BPELProcess1.wsdl) -->
+    <receive name="receiveInput" partnerLink="PartyReadDBConsumer" portType="ns1:PartyReadDBConsumer_ptt"
+             operation="receive" variable="receiveInput_receive_InputVariable" createInstance="yes"/>
+    <assign name="Xform_PartyRead">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/Xform_PartyRead.xsl", $receiveInput_receive_InputVariable.CachepartyreadCollection)</from>
+        <to variable="InvokeFileProducer_Write_InputVariable" part="body"/>
+      </copy>
+    </assign>
+    <invoke name="InvokeFileProducer" bpelx:invokeAsDetail="no" partnerLink="PartyReadFileAdapter"
+            portType="ns2:Write_ptt" operation="Write" inputVariable="InvokeFileProducer_Write_InputVariable"/>
+  </sequence>
+</process>

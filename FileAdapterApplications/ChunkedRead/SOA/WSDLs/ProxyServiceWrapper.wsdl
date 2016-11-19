@@ -1,0 +1,16 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="testService"
+     targetNamespace="http://xmlns.oracle.com/ServiceBusApplication/TestEntrySBProject/testService"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:WL5G3N2="http://xmlns.oracle.com/ServiceBusApplication/TestEntrySBProject/testService"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="DService">
+        <plnk:role name="execute_ptt" portType="WL5G3N2:execute_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://xmlns.oracle.com/ServiceBusApplication/TestEntrySBProject/testService"
+         location="ProxyService.wsdl"/>
+</wsdl:definitions>

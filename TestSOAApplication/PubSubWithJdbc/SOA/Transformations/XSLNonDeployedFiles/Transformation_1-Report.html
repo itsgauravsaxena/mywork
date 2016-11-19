@@ -1,0 +1,338 @@
+<?xml version = '4.0' encoding = 'UTF-8'?>
+<HTML xmlns:ns0="http://www.oracle.com/ip/MAPDOCUMENTATION" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <HEAD/>
+   <BODY bgcolor="#f7f7e7">
+      <TABLE cellspacing="3" width="100%" border="1">
+         <TR>
+            <TD>
+               <NOBR>
+                  <B>
+                     <font color="#336699" size="3">
+XSL File
+
+:</font>
+                  </B>
+                  <B>
+file:/home/oracle/jdeveloper/mywork/TestSOAApplication/PubSubWithJdbc/SOA/Transformations/Transformation_1.xsl
+</B>
+               </NOBR>
+            </TD>
+         </TR>
+         <TR>
+            <TD>
+               <B>
+                  <U>
+                     <font color="#336699" size="3">
+Source Schema
+</font>
+                  </U>
+               </B>
+               <BR/>
+               <BR/>
+               <B>
+                  <font color="#336699" size="3">
+Name
+
+                                   :</font>
+               </B>
+               <B>
+file:/home/oracle/jdeveloper/mywork/TestSOAApplication/PubSubWithJdbc/SOA/WSDLs/SOAPService.wsdl
+</B>
+               <BR/>
+               <B>
+                  <font color="#336699" size="3">
+Root Element Name
+
+          : </font>
+               </B>
+               <B>
+MESSAGE_TYP
+</B>
+               <BR/>
+               <B>
+                  <font color="#336699" size="3">
+Root Element Namespace
+
+:</font>
+               </B>
+               <B>
+</B>
+               <BR/>
+            </TD>
+         </TR>
+         <TR>
+            <TD>
+               <B>
+                  <U>
+                     <font color="#336699" size="3">
+Target Schema
+</font>
+                  </U>
+               </B>
+               <BR/>
+               <BR/>
+               <B>
+                  <font color="#336699" size="3">
+Name
+
+                                   :</font>
+               </B>
+               <B>
+file:/home/oracle/jdeveloper/mywork/TestSOAApplication/PubSubWithJdbc/SOA/WSDLs/SOAPService.wsdl
+</B>
+               <BR/>
+               <B>
+                  <font color="#336699" size="3">
+Root Element Name
+
+          : </font>
+               </B>
+               <B>
+MESSAGE_TYP
+</B>
+               <BR/>
+               <B>
+                  <font color="#336699" size="3">
+Root Element Namespace
+
+:</font>
+               </B>
+               <B>
+</B>
+               <BR/>
+            </TD>
+         </TR>
+      </TABLE>
+      <BR/>
+      <BR/>
+      <TABLE width="100%">
+         <TR>
+            <NOBR>
+               <font color="#336699" size="5">
+                  <B>
+                     <U>
+Target Document Mapping
+</U>
+                  </B>
+                  <BR/>
+                  <BR/>
+               </font>
+            </NOBR>
+         </TR>
+         <TR>
+            <TD>
+               <NOBR>
+                  <B>template</B>
+
+ <font color="#663300">{match='/'}</font>
+                  <BR/>     |<BR/>
+               </NOBR>
+            </TD>
+         </TR>
+         <TR>
+            <TD>
+               <NOBR>    + - 
+
+ 
+            <B>ns0:MESSAGE_TYP</B>
+
+ <font color="#663300">{MESSAGE_TYP}</font>
+                  <BR/>                |<BR/>
+               </NOBR>
+            </TD>
+         </TR>
+         <TR>
+            <TD>
+               <NOBR>              + - 
+
+ 
+            <B>if</B>
+
+ <B>(</B>
+                  <B>/ns0:MESSAGE_TYP/SUBJECT</B>
+
+  <font color="#663300">{anonymous}</font>
+                  <B>)</B>
+                  <BR/>                                  |<BR/>
+               </NOBR>
+            </TD>
+         </TR>
+         <TR>
+            <TD>
+               <NOBR>                                + - 
+
+ 
+            <B>SUBJECT</B>
+
+ <font color="#663300">{anonymous}</font>
+                  <BR/>                                       |<BR/>
+               </NOBR>
+            </TD>
+         </TR>
+         <TR>
+            <TD>
+               <NOBR>                                     + - 
+
+ 
+            <B>if</B>
+
+ <B>(</B>
+                  <B>/ns0:MESSAGE_TYP/SUBJECT/@xsi:nil</B>
+
+  <font color="#663300">{boolean}</font>
+                  <B>)</B>
+                  <BR/>                                                 |<BR/>
+               </NOBR>
+            </TD>
+         </TR>
+         <TR>
+            <TD>
+               <NOBR>                                               + - 
+
+ 
+            <B>attribute</B>
+
+ <font color="#663300">{name='nil'}</font>
+
+        <img src="file:/home/oracle/jdeveloper/mywork/TestSOAApplication/PubSubWithJdbc/SOA/Transformations/XSLNonDeployedFiles/back.gif"/>
+
+        <B>/ns0:MESSAGE_TYP/SUBJECT/@xsi:nil</B>
+
+  <font color="#663300">{boolean}</font>
+                  <BR/>
+               </NOBR>
+            </TD>
+         </TR>
+         <TR>
+            <TD>
+               <NOBR>              + - 
+
+ 
+            <B>if</B>
+
+ <B>(</B>
+                  <B>/ns0:MESSAGE_TYP/TEXT</B>
+
+  <font color="#663300">{anonymous}</font>
+                  <B>)</B>
+                  <BR/>                                  |<BR/>
+               </NOBR>
+            </TD>
+         </TR>
+         <TR>
+            <TD>
+               <NOBR>                                + - 
+
+ 
+            <B>TEXT</B>
+
+ <font color="#663300">{anonymous}</font>
+                  <BR/>                                       |<BR/>
+               </NOBR>
+            </TD>
+         </TR>
+         <TR>
+            <TD>
+               <NOBR>                                     + - 
+
+ 
+            <B>if</B>
+
+ <B>(</B>
+                  <B>/ns0:MESSAGE_TYP/TEXT/@xsi:nil</B>
+
+  <font color="#663300">{boolean}</font>
+                  <B>)</B>
+                  <BR/>                                              |<BR/>
+               </NOBR>
+            </TD>
+         </TR>
+         <TR>
+            <TD>
+               <NOBR>                                            + - 
+
+ 
+            <B>attribute</B>
+
+ <font color="#663300">{name='nil'}</font>
+
+        <img src="file:/home/oracle/jdeveloper/mywork/TestSOAApplication/PubSubWithJdbc/SOA/Transformations/XSLNonDeployedFiles/back.gif"/>
+
+        <B>/ns0:MESSAGE_TYP/TEXT/@xsi:nil</B>
+
+  <font color="#663300">{boolean}</font>
+                  <BR/>
+               </NOBR>
+            </TD>
+         </TR>
+      </TABLE>
+      <BR/>
+      <TABLE width="100%">
+         <TR>
+            <TD>
+               <NOBR>
+                  <font color="#336699" size="5">
+                     <B>
+                        <U>
+Target Fields Not Mapped
+</U>
+                     </B>
+ <B>(</B>
+                     <font color="red">*</font>
+                     <B>  
+Indicates Mandatory Fields
+
+)</B>
+                  </font>
+               </NOBR>
+            </TD>
+         </TR>
+      </TABLE>
+      <HR/>
+      <BR/>
+      <TABLE>
+         <TR>
+            <TD>
+               <NOBR>
+                  <font color="#336699" size="5">
+                     <B>
+                        <U>
+Sample Transformation Map Execution
+</U>
+                     </B>
+                  </font>
+               </NOBR>
+            </TD>
+         </TR>
+      </TABLE>
+      <TABLE cellspacing="10" width="100%" border="1">
+         <TR>
+            <TD valign="top">
+               <PRE>
+                  <U>
+Source Document
+</U>
+&lt;?xml version = '1.0' encoding = 'UTF-8'?>
+&lt;MESSAGE_TYP xmlns="http://xmlns.oracle.com/xdb/TEST">
+   &lt;SUBJECT xmlns="">string1&lt;/SUBJECT>
+   &lt;TEXT xmlns="">string3&lt;/TEXT>
+&lt;/MESSAGE_TYP>
+
+</PRE>
+            </TD>
+            <TD valign="top">
+               <PRE>
+                  <U>
+Target Document
+</U>
+&lt;ns0:MESSAGE_TYP xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://oracle.com/sca/soapservice/TestSOAApplication/EDNPerformanceProject/SOAPService" xmlns:ns0="http://xmlns.oracle.com/xdb/TEST">
+   &lt;SUBJECT>string1&lt;/SUBJECT>
+   &lt;TEXT>string3&lt;/TEXT>
+&lt;/ns0:MESSAGE_TYP>
+
+</PRE>
+            </TD>
+         </TR>
+      </TABLE>
+   </BODY>
+</HTML>

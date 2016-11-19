@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<properties>
+   <entry key="AG}-39afd747:1548f02c686:-7bf8">runnerUpTwo</entry>
+   <entry key="DG}-39afd747:1548f02c686:-7bfa">A test function to return list of runnerups on each condition</entry>
+   <entry key="AG}-39afd747:1548f02c686:-7bf9">runnerUpOne</entry>
+   <entry key="AG}-39afd747:1548f02c686:-7bfa">getRunnerUpList</entry>
+   <entry key="AG}-39afd747:1548f02c686:-7c0f">RuleFindRunnerUps</entry>
+   <entry key="AG}-39afd747:1548f02c686:-7c04">DecisionTableFindRunnerUp</entry>
+</properties>

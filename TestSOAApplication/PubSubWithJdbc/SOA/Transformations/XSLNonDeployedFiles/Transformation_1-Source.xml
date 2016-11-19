@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<MESSAGE_TYP xmlns="http://xmlns.oracle.com/xdb/TEST">
+   <SUBJECT xmlns="">string1</SUBJECT>
+   <TEXT xmlns="">string3</TEXT>
+</MESSAGE_TYP>

@@ -13,11 +13,19 @@
            xmlns:sca-ext="http://xmlns.oracle.com/sca/1.0-ext">
   <import namespace="http://xmlns.oracle.com/RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1"
           location="WSDLs/RockPaperScissorsRules_DecisionService_1.wsdl" importType="wsdl"/>
+  <import namespace="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/BPELProcess1"
+          location="WSDLs/BPELProcess1.wsdl" importType="wsdl"/>
+  <import namespace="http://xmlns.oracle.com/RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1"
+          location="WSDLs/RockPaperScissorsRules_DecisionService_1Wrapper.wsdl" importType="wsdl"/>
   <import namespace="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/ExposeRockPaperScissors"
           location="WSDLs/ExposeRockPaperScissors.wsdl" importType="wsdl"/>
-  <service name="ExposeRockPaperScissorService" ui:wsdlLocation="WSDLs/ExposeRockPaperScissors.wsdl">
+  <service name="bpelprocess1_client_ep" ui:wsdlLocation="WSDLs/BPELProcess1.wsdl">
+    <interface.wsdl interface="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/BPELProcess1#wsdl.interface(BPELProcess1)"/>
+    <binding.ws port="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/BPELProcess1#wsdl.endpoint(bpelprocess1_client_ep/BPELProcess1_pt)"/>
+  </service>
+  <service name="ExposeRockPaperScissorsService" ui:wsdlLocation="WSDLs/ExposeRockPaperScissors.wsdl">
     <interface.wsdl interface="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/ExposeRockPaperScissors#wsdl.interface(gameRulings_ptt)"/>
-    <binding.ws port="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/ExposeRockPaperScissors#wsdl.endpoint(ExposeRockPaperScissorService/gameRulings_pt)">
+    <binding.ws port="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/ExposeRockPaperScissors#wsdl.endpoint(ExposeRockPaperScissorsService/gameRulings_pt)">
       <property name="weblogic.wsee.wsat.transaction.flowOption" type="xs:string" many="false">NEVER</property>
     </binding.ws>
   </service>
@@ -32,6 +40,19 @@
       </service>
     </componentType>
   </component>
+  <component name="BPELProcess1" version="2.0">
+    <implementation.bpel src="BPEL/BPELProcess1.bpel"/>
+    <componentType>
+      <service name="bpelprocess1_client" ui:wsdlLocation="WSDLs/BPELProcess1.wsdl">
+        <interface.wsdl interface="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/BPELProcess1#wsdl.interface(BPELProcess1)"/>
+      </service>
+      <reference name="RockPaperScissorsRules.RockPaperScissorsRules_DecisionService_1"
+                 ui:wsdlLocation="WSDLs/RockPaperScissorsRules_DecisionService_1Wrapper.wsdl">
+        <interface.wsdl interface="http://xmlns.oracle.com/RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1#wsdl.interface(IDecisionService)"/>
+      </reference>
+    </componentType>
+    <property name="bpel.config.transaction" type="xs:string" many="false">required</property>
+  </component>
   <component name="ExposeRockPaperScissors">
     <implementation.mediator src="Mediators/ExposeRockPaperScissors.mplan"/>
     <componentType>
@@ -45,11 +66,19 @@
     </componentType>
   </component>
   <wire>
+    <source.uri>bpelprocess1_client_ep</source.uri>
+    <target.uri>BPELProcess1/bpelprocess1_client</target.uri>
+  </wire>
+  <wire>
+    <source.uri>BPELProcess1/RockPaperScissorsRules.RockPaperScissorsRules_DecisionService_1</source.uri>
+    <target.uri>RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1</target.uri>
+  </wire>
+  <wire>
     <source.uri>ExposeRockPaperScissors/RockPaperScissorsRules.RockPaperScissorsRules_DecisionService_1</source.uri>
     <target.uri>RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1</target.uri>
   </wire>
   <wire>
-    <source.uri>ExposeRockPaperScissorService</source.uri>
+    <source.uri>ExposeRockPaperScissorsService</source.uri>
     <target.uri>ExposeRockPaperScissors/ExposeRockPaperScissors</target.uri>
   </wire>
 </composite>

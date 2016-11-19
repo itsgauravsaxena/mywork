@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/PartyReadDBConsumer" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/PartyReadDBConsumer" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="CachepartyreadCollection" type="CachepartyreadCollection"/>
+   <xs:complexType name="CachepartyreadCollection">
+      <xs:sequence>
+         <xs:element name="Cachepartyread" type="Cachepartyread" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Cachepartyread">
+      <xs:sequence>
+         <xs:element name="legacyId" type="string30" nillable="true"/>
+         <xs:element name="partyId" type="string30" minOccurs="0" nillable="true"/>
+         <xs:element name="primaryAddress" type="string100" minOccurs="0" nillable="true"/>
+         <xs:element name="secondaryAddress" type="string100" minOccurs="0" nillable="true"/>
+         <xs:element name="insertDate" type="xs:dateTime" minOccurs="0" nillable="true"/>
+         <xs:element name="updateDate" type="xs:dateTime" minOccurs="0" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="string30">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="30"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string100">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="100"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

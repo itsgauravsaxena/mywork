@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:wire/ns:target.uri[.='BPELProcess2/bpelprocess2_client']</loc>
+      <line>50</line>
+      <col>17</col>
+      <file>/home/oracle/jdeveloper/mywork/TestSOAApplication/TestProject/SOA/composite.xml</file>
+      <name>/home/oracle/jdeveloper/mywork/TestSOAApplication/TestProject/SOA/composite.xml</name>
+      <fix/>
+      <msg>Schema validation failed with exception "Invalid element 'element' in 'all'"</msg>
+   </Fault>
+</Faults>

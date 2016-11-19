@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="RunnerUpRuleEngine">
+    <ruleEngineProvider provider="Oracle_11.0.0.0.0" name="OracleRulesSDK">
+        <repository type="SCA-Archive">
+            <path>RunnerUpRules/oracle/rules/runneruprules/RunnerUpRuleEngine.rules</path>
+        </repository>
+    </ruleEngineProvider>
+    <decisionService name="RunnerUpRuleEngine_DecisionService_1" ruleEngineProviderReference="OracleRulesSDK" targetNamespace="http://xmlns.oracle.com/RunnerUpRuleEngine/RunnerUpRuleEngine_DecisionService_1">
+        <catalog>RunnerUpRuleEngine</catalog>
+        <pattern name="CallFunctionStateless">
+            <arguments>
+                <call>runneruprules.RunnerUpRuleEngine.DecisionService_1</call>
+            </arguments>
+        </pattern>
+        <pattern name="CallFunctionStateful">
+            <arguments>
+                <call>runneruprules.RunnerUpRuleEngine.DecisionService_1</call>
+            </arguments>
+        </pattern>
+    </decisionService>
+    <schemaInformation>
+        <dictionary fqnPackage="runneruprules" fqnName="RunnerUpRuleEngine" updateNumber="110">
+            <schemaBrowser>
+                <package>org.example</package>
+                <namespace>http://www.example.org</namespace>
+            </schemaBrowser>
+            <schemaImport namespace="http://www.example.org" localPart="Scores.xsd" schemaLocation="Schemas/Scores.xsd">
+                <import namespace="http://www.example.org" localPart="Scores.xsd" schemaLocation="Schemas/Scores.xsd"/>
+            </schemaImport>
+        </dictionary>
+    </schemaInformation>
+</decisionServices>

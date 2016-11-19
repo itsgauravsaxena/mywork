@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<faultPolicies xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+  <faultPolicy version="2.0.1" 
+            id="TestProjectPolicy"
+               xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns="http://schemas.oracle.com/bpel/faultpolicy"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Conditions>
+      <faultName xmlns:bpelx="http://schemas.oracle.com/bpel/extension" name="bpelx:assertFailure">                  
+        <condition>
+          <action ref="ora-human-intervention"/>
+        </condition>
+      </faultName>
+    </Conditions>
+    <Actions>
+      <!--  Human Intervention --> 
+      <Action id="ora-human-intervention">
+        <humanIntervention /> 
+      </Action>
+    </Actions>
+  </faultPolicy>
+</faultPolicies>

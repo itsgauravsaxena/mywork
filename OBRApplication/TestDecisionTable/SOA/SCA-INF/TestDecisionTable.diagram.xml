@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
-    <dgm:gService name="ExposeRockPaperScissorService">
+    <dgm:gService name="bpelprocess1_client_ep">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="160" width="137" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="11" Y="153" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:outputPort name="bpelprocess1_client_ep" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/BPELProcess1#wsdl.interface(BPELProcess1)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="20" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>process</dgm:item>
+        </dgm:operations>
+    </dgm:gService>
+    <dgm:gService name="ExposeRockPaperScissorsService">
         <dgm:body borderWidth="2" arcRad="20" X="21" Y="41" width="137" height="84">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
@@ -8,44 +22,71 @@
         <dgm:shadow arcRad="20" X="11" Y="34" width="156" height="98">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
-        <dgm:outputPort name="ExposeRockPaperScissorService" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/ExposeRockPaperScissors#wsdl.interface(gameRulings_ptt)"/>
+        <dgm:outputPort name="ExposeRockPaperScissorsService" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/ExposeRockPaperScissors#wsdl.interface(gameRulings_ptt)"/>
         <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="20" Y="4" width="20" height="20"/>
         <dgm:operations>
             <dgm:item>callARoundOfRockPaperScissors</dgm:item>
         </dgm:operations>
     </dgm:gService>
     <dgm:gComponent name="RockPaperScissorsRules">
-        <dgm:body borderWidth="2" arcRad="20" X="482" Y="26" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="504" Y="111" width="130" height="61">
             <dgm:borderColor r="178" g="138" b="53"/>
             <dgm:lightBgColor r="255" g="226" b="142"/>
             <dgm:darkBgColor r="255" g="198" b="77"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="472" Y="19" width="150" height="77">
+        <dgm:shadow arcRad="20" X="494" Y="104" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="RockPaperScissorsRules_DecisionService_1" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1#wsdl.interface(IDecisionService)"/>
         <dgm:nodeIcon URI="/oracle/tip/tools/ide/rules/plugins/resources/images/soa/decision_20x20.png" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
+    <dgm:gComponent name="BPELProcess1">
+        <dgm:body borderWidth="2" arcRad="20" X="266" Y="145" width="130" height="61">
+            <dgm:borderColor r="69" g="113" b="140"/>
+            <dgm:lightBgColor r="166" g="208" b="230"/>
+            <dgm:darkBgColor r="99" g="162" b="201"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="256" Y="138" width="150" height="77">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="bpelprocess1_client" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/BPELProcess1#wsdl.interface(BPELProcess1)"/>
+        <dgm:outputPort name="RockPaperScissorsRules.RockPaperScissorsRules_DecisionService_1" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1#wsdl.interface(IDecisionService)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
     <dgm:gComponent name="ExposeRockPaperScissors">
-        <dgm:body borderWidth="2" arcRad="20" X="255" Y="26" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="266" Y="26" width="130" height="61">
             <dgm:borderColor r="128" g="92" b="148"/>
             <dgm:lightBgColor r="208" g="169" b="227"/>
             <dgm:darkBgColor r="183" g="132" b="212"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="245" Y="19" width="150" height="77">
+        <dgm:shadow arcRad="20" X="256" Y="19" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="ExposeRockPaperScissors" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/OBRApplication/TestDecisionTable/ExposeRockPaperScissors#wsdl.interface(gameRulings_ptt)"/>
         <dgm:outputPort name="RockPaperScissorsRules.RockPaperScissorsRules_DecisionService_1" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1#wsdl.interface(IDecisionService)"/>
         <dgm:nodeIcon URI="/oracle/tip/tools/ide/mediator/resource/image/mediator_20x20.png" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
-    <dgm:gWireLink source="ExposeRockPaperScissors/RockPaperScissorsRules.RockPaperScissorsRules_DecisionService_1" target="RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1" width="2">
-        <dgm:gSegment X1="395" Y1="51" X2="472" Y2="51"/>
+    <dgm:gWireLink source="bpelprocess1_client_ep" target="BPELProcess1/bpelprocess1_client" width="2">
+        <dgm:gSegment X1="168" Y1="170" X2="256" Y2="170"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
-    <dgm:gWireLink source="ExposeRockPaperScissorService" target="ExposeRockPaperScissors/ExposeRockPaperScissors" width="2">
-        <dgm:gSegment X1="168" Y1="51" X2="245" Y2="51"/>
+    <dgm:gWireLink source="BPELProcess1/RockPaperScissorsRules.RockPaperScissorsRules_DecisionService_1" target="RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1" width="2">
+        <dgm:gSegment X1="406" Y1="170" X2="430" Y2="170"/>
+        <dgm:gSegment X1="430" Y1="170" X2="430" Y2="136"/>
+        <dgm:gSegment X1="430" Y1="136" X2="494" Y2="136"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="ExposeRockPaperScissors/RockPaperScissorsRules.RockPaperScissorsRules_DecisionService_1" target="RockPaperScissorsRules/RockPaperScissorsRules_DecisionService_1" width="2">
+        <dgm:gSegment X1="406" Y1="51" X2="445" Y2="51"/>
+        <dgm:gSegment X1="445" Y1="51" X2="445" Y2="136"/>
+        <dgm:gSegment X1="445" Y1="136" X2="494" Y2="136"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="ExposeRockPaperScissorsService" target="ExposeRockPaperScissors/ExposeRockPaperScissors" width="2">
+        <dgm:gSegment X1="168" Y1="51" X2="256" Y2="51"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>

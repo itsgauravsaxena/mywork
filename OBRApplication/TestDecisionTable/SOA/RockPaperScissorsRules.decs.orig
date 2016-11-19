@@ -19,7 +19,7 @@
         </pattern>
     </decisionService>
     <schemaInformation>
-        <dictionary fqnPackage="testdecisiontable" fqnName="RockPaperScissorsRules" updateNumber="101">
+        <dictionary fqnPackage="testdecisiontable" fqnName="RockPaperScissorsRules" updateNumber="174">
             <schemaBrowser>
                 <package>gaming.org</package>
                 <namespace>org.gaming</namespace>

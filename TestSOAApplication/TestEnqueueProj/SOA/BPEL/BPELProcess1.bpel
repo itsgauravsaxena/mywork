@@ -1,0 +1,79 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Thu May 26 15:22:09 CEST 2016
+  Author:  oracle
+  Type: BPEL 2.0 Process
+  Purpose: One Way BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="BPELProcess1"
+               targetNamespace="http://xmlns.oracle.com/TestSOAApplication/TestEnqueueProj/BPELProcess1"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/TestSOAApplication/TestEnqueueProj/BPELProcess1"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/TestSOAApplication/TestEnqueueProj/testdbService"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/aq/TestSOAApplication/TestEnqueueProj/aqReference"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      PARTNERLINKS                                                      
+      List of services participating in this BPEL process               
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/TestSOAApplication/TestEnqueueProj/testdbService"
+          location="../WSDLs/testdbService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/" ui:processWSDL="true"/>
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="testdbService" partnerLinkType="ns1:testdbService_plt" myRole="testdbService_role"/>
+    <partnerLink name="aqReference" partnerLinkType="ns2:Enqueue_plt" partnerRole="Enqueue_role"/>
+  </partnerLinks>
+  <variables>
+    <variable name="inputDBVariable" messageType="ns1:TestenqueueCollection_msg"/>
+    <variable name="inputAQVariable" messageType="ns2:MESSAGE_TYP_msg"/>
+  </variables>
+  <faultHandlers>
+    <catchAll>
+      <empty name="Empty1"/>
+    </catchAll>
+  </faultHandlers>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in BPELProcess1.wsdl) -->
+    <receive name="receiveInput" partnerLink="testdbService" portType="ns1:testdbService_ptt" operation="receive"
+             variable="inputDBVariable" createInstance="yes"/>
+    <assign name="Transformation1">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/Transformation_1.xsl", $inputDBVariable.TestenqueueCollection)</from>
+        <to variable="inputAQVariable" part="MESSAGE_TYP"/>
+      </copy>
+    </assign>
+    <invoke name="Invoke1" bpelx:invokeAsDetail="no" partnerLink="aqReference" portType="ns2:Enqueue_ptt"
+            operation="Enqueue" inputVariable="inputAQVariable"/>
+  </sequence>
+</process>

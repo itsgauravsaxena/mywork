@@ -1,0 +1,10 @@
+<adapter-config name="socketService" adapter="socket" wsdlLocation="../WSDLs/socketService.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/socket/SocketAdapter"/>
+  <endpoint-activation portType="Receive_ptt" operation="Receive" UITransmissionPrimitive="Receive">
+    <activation-spec className="oracle.tip.adapter.socket.SocketActivationSpec">
+      <property name="TransMode" value="NXSD"/>
+    </activation-spec>
+  </endpoint-activation>
+
+</adapter-config>

@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:reference[@name='Service']</loc>
+      <line>36</line>
+      <col>29</col>
+      <file>/home/oracle/jdeveloper/mywork/CustomerInfo-sca/SyncCustomerInfoOMEGAReq/SOA/composite.xml</file>
+      <name>/home/oracle/jdeveloper/mywork/CustomerInfo-sca/SyncCustomerInfoOMEGAReq/SOA/composite.xml</name>
+      <fix/>
+      <msg>Reference Service does not exist as wire target</msg>
+   </Fault>
+</Faults>

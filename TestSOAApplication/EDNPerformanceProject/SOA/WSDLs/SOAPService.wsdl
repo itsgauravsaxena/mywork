@@ -1,0 +1,22 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="SOAPService"
+     targetNamespace="http://oracle.com/sca/soapservice/TestSOAApplication/EDNPerformanceProject/SOAPService"
+     xmlns:tns="http://oracle.com/sca/soapservice/TestSOAApplication/EDNPerformanceProject/SOAPService"
+     xmlns:inp1="http://xmlns.oracle.com/xdb/TEST"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/xdb/TEST" schemaLocation="../Schemas/TEST_MESSAGE_TYP.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="part1" element="inp1:MESSAGE_TYP"/>
+    </wsdl:message>
+    <wsdl:portType name="execute_ptt">
+        <wsdl:operation name="execute">
+            <wsdl:input message="tns:requestMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

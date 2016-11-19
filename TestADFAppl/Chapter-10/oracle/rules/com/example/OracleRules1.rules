@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<RuleDictionary id="G}11d60aeb:154bb4e70d6:-7c13" xmlns="http://xmlns.oracle.com/rules/dictionary">
+  <Name>OracleRules1</Name>
+  <Alias>OracleRules1</Alias>
+  <Package>com.example</Package>
+  <Version>12.1.1.0.0</Version>
+  <DataModel id="L}1">
+    <CreationUpdateNumber>2</CreationUpdateNumber>
+    <QualifierPattern>{member} of {fact}</QualifierPattern>
+    <SupportsXPathEnabled>false</SupportsXPathEnabled>
+    <UpdateNumber>6</UpdateNumber>
+    <ValidationUpdateNumber>6</ValidationUpdateNumber>
+    <UpdateTime>0</UpdateTime>
+  </DataModel>
+  <RuleSet id="G}11d60aeb:154bb4e70d6:-7c11">
+    <Name>Ruleset1</Name>
+    <Alias>Ruleset1</Alias>
+    <ValidationUpdateNumber>3</ValidationUpdateNumber>
+    <Active>true</Active>
+    <CalendarForm>DateTime</CalendarForm>
+    <VisibilityFilterEnabled>false</VisibilityFilterEnabled>
+    <CreationUpdateNumber>3</CreationUpdateNumber>
+  </RuleSet>
+  <DictionaryLink id="L}5">
+    <Name>DecisionPointDictionary</Name>
+    <Alias>DecisionPointDictionary</Alias>
+    <Package>oracle.rules.sdk2.decisionpoint.impl</Package>
+    <UpdateNumber>323</UpdateNumber>
+    <PrefixLinkedNames>true</PrefixLinkedNames>
+  </DictionaryLink>
+  <ValidationUpdateNumber>6</ValidationUpdateNumber>
+  <UpdateNumber>6</UpdateNumber>
+  <ResourceBundle>OracleRules1Translations</ResourceBundle>
+  <TestModel id="L}3">
+    <ValidationUpdateNumber>1</ValidationUpdateNumber>
+    <UpdateNumber>1</UpdateNumber>
+    <Validation>true</Validation>
+    <AutoSync>true</AutoSync>
+  </TestModel>
+  <Preferences id="G}11d60aeb:154bb4e70d6:-7c12">
+    <RulesExecutionAlgorithm>RETE</RulesExecutionAlgorithm>
+    <DisallowErrorSuppression>false</DisallowErrorSuppression>
+    <PhraseSuggestions>All</PhraseSuggestions>
+    <RestrictAutoSuggestions>true</RestrictAutoSuggestions>
+    <IncludeChainedExpressions>true</IncludeChainedExpressions>
+  </Preferences>
+</RuleDictionary>

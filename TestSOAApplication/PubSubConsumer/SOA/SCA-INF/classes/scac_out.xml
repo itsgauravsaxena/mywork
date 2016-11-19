@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:component[@name='BPELProcess1/bpelprocess1_client']</loc>
+      <line/>
+      <col/>
+      <file>/home/oracle/jdeveloper/mywork/TestSOAApplication/PubSubConsumer/SOA/composite.xml</file>
+      <name>/home/oracle/jdeveloper/mywork/TestSOAApplication/PubSubConsumer/SOA/composite.xml</name>
+      <fix/>
+      <msg>The service "bpelprocess1_client" exposed by component "BPELProcess1" is not wired to/used by any other component.</msg>
+   </Fault>
+</Faults>

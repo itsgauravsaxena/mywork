@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:component[@name='IdentifierCheckRule/IdentifierCheckRule_DecisionService_1']</loc>
+      <line/>
+      <col/>
+      <file>/home/oracle/jdeveloper/mywork/OBRApplication/TestRulesWithADFBCFacts/SOA/composite.xml</file>
+      <name>/home/oracle/jdeveloper/mywork/OBRApplication/TestRulesWithADFBCFacts/SOA/composite.xml</name>
+      <fix/>
+      <msg>The service "IdentifierCheckRule_DecisionService_1" exposed by component "IdentifierCheckRule" is not wired to/used by any other component.</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc>IdentifierCheckRule</loc>
+      <line/>
+      <col/>
+      <file/>
+      <name/>
+      <fix/>
+      <msg>Rule Dictionary IdentifierCheckRule is invalid.</msg>
+   </Fault>
+</Faults>
